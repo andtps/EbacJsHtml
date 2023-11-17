@@ -8,18 +8,21 @@ document.addEventListener("DOMContentLoaded", function() {
         const numberB = parseFloat(document.getElementById("numberB").value);
         const sucessmessage = `O número B: <b>${numberB}</b>, é maior que o número A: <b>${numberA}</b>`
         const MensagemErro = `O número B: <b>${numberB}</b>, precisa ser maior que o número A: <b>${numberA}</b>`
+        const containerSucessMessage = document.querySelector('.sucess-message');
+        const containerError = document.querySelector('.error-message')
+
 
         if (numberB > numberA) {
-            const containerSucessMessage = document.querySelector('.sucess-message');
             containerSucessMessage.innerHTML = sucessmessage;
             containerSucessMessage.style.display = 'block';
+            containerError.style.display = 'none';
         } else if (numberB < numberA) {
-            const containerError = document.querySelector('.error-message')
             containerError.innerHTML = MensagemErro
-            containerError.style.display = 'block'
+            containerError.style.display = 'block';
+            containerSucessMessage.style.display = 'none';
         }
         setTimeout(function() {
             location.reload();
-        }, 3000);
+            }, 8500)
     });
 });
